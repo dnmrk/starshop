@@ -5,9 +5,9 @@
 {% block body %}
     <strong>Starshop Twig.</strong>
     <div>
-        Browse through {{ numberOfStarships }} starships!
+        Browse through {{ ships|length }} starships!
 
-        {% if numberOfStarships > 400 %}
+        {% if ships|length > 2 %}
             {# sample twig comment #}
             <p>That's a lot of ships!</p>
         {% endif %}
