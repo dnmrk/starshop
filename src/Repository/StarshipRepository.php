@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Model\Starship;
+use App\Model\StarshipStatusEnum;
 use Psr\Log\LoggerInterface;
 
 class StarshipRepository
@@ -22,21 +23,21 @@ class StarshipRepository
                 'USS LeafyCruiser (NCC-0001)',
                 'Garden',
                 'Jean-Luc Pickles I',
-                'under construction',
+                StarshipStatusEnum::IN_PROGRESS,
             ),
             new Starship(
                 2,
                 'USS LeafyCruiser (NCC-0002)',
                 'Garden',
                 'Jean-Luc Pickles II',
-                'under construction',
+                StarshipStatusEnum::COMPLETED,
             ),
             new Starship(
                 3,
                 'USS LeafyCruiser (NCC-0003)',
                 'Garden',
                 'Jean-Luc Pickles III',
-                'under construction',
+                StarshipStatusEnum::WAITING,
             ),
         ];
     }
@@ -44,10 +45,11 @@ class StarshipRepository
     public function find(int $id): ?Starship
     {
         foreach ($this->findAll() as $starship) {
-            if ((int)$starship->getId() === $id) {
+            if ((int) $starship->getId() === $id) {
                 return $starship;
             }
         }
+
         return null;
     }
 }
