@@ -1,31 +1,37 @@
-<strong>Starshop Twig.</strong>
-<div>
-    Browse through {{ numberOfStarships }} starships!
+{% extends 'base.html.twig' %}
 
-    {% if numberOfStarships > 400 %}
-        {# sample twig comment #}
-        <p>That's a lot of ships!</p>
-    {% endif %}
-</div>
+{% block title %}{{ parent() }} Starshop!{% endblock %}
 
-<div>
-    <h2>My Ship</h2>
-    <table>
-        <tr>
-            <th>Name</th>
-            <td>{{ myShip.name }}</td>
-        </tr>
-        <tr>
-            <th>Class</th>
-            <td>{{ myShip.class }}</td>
-        </tr>
-        <tr>
-            <th>Captain</th>
-            <td>{{ myShip.captain|upper }}</td>
-        </tr>
-        <tr>
-            <th>Status</th>
-            <td>{{ myShip.status }}</td>
-        </tr>
-    </table>
-</div>
+{% block body %}
+    <strong>Starshop Twig.</strong>
+    <div>
+        Browse through {{ numberOfStarships }} starships!
+
+        {% if numberOfStarships > 400 %}
+            {# sample twig comment #}
+            <p>That's a lot of ships!</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2>My Ship</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <td>{{ myShip.name }}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{ myShip.class }}</td>
+            </tr>
+            <tr>
+                <th>Captain</th>
+                <td>{{ myShip.captain|upper }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ myShip.status }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
